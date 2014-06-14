@@ -1,14 +1,21 @@
 # this converts the serial output of my Arduino-based logic analyzer
 # to a command line output - gives a decent idea of what's going on
 
-f = open('log.txt', 'r')
+import serial
+
+analyzer = serial.Serial('/dev/ttyACM0', 115200)
+
+#f = open('log.txt', 'r')
 
 strs = ['', '', '', '']
 
-for line in f:
+while True:
+    line = analyzer.readline()
     if line[0] == '-':
-        for x in range(4):
-            strs[x] += 'X'
+        for s in strs:
+            print s
+        strs = ['','','','']
+        print '////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////'        
     else:
         val = int(line)
         for x in range(4):
@@ -17,5 +24,4 @@ for line in f:
             else:
                 strs[x] += '_'
 
-for str in strs:
-    print str
+
