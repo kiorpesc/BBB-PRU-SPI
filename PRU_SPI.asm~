@@ -205,10 +205,10 @@ mode2EndIf1:
     NOOP
     JAL 	RET_ADDR, _waitLong    				// WAIT
 //----------------------------------------------------------CLOCK LOW----SAMPLE EDGE-
-    CLR		CLOCK_PIN        				// set clock low
+    CLR		CLOCK_PIN        					// set clock low
     LSL 	RX_BYTE, RX_BYTE, 1
-    QBBC 	mode2EndIf2, MISO_PIN	 			// check input	
-    SET 	RX_BYTE.t0					
+    QBBC 	mode2EndIf2, MISO_PIN	 				// check input	
+    SET 	RX_BYTE.t0						
 mode2EndIf2:
     QBLT	mode2SameByte, BIT_ITER, 0				
     JAL		RET_ADDR, _byteTransition
@@ -237,21 +237,7 @@ mode2Release:
 // the logic to handle Mode 3 SPI devices
 ////////////////////////////////////////////////////////////
 _mode3:
-    SET		CLOCK_PIN					// clock starts high
-    LDI		BIT_ITER, 7
-    LDI		RX_BYTE, 0					// clear the rx buffer byte
-    LDI		TRANS_COUNTER, 0				// no bytes transferred yet
-    LBBO	TX_BYTE, MEM_START, TRANS_COUNTER, 1		// load the first byte
-    CLR		CS_PINS, ID_REG					// drop CS
-// LOOP
-    QBEQ	_mode3End, TRANS_COUNTER, TRANS_TOTAL
-//----------------------------------------------------CLOCK LOW ---
-    CLR		CLOCK_PIN					// drop clock
-    LSR		TEMP_BYTE, TX_BYTE, BIT_ITER			// prepare data (transition)
-// wait
-// clock up
-// read input
-// wait
+
 
 // end the PRU's operation.
 _done:

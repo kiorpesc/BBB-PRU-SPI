@@ -1,0 +1,20 @@
+// User configuration file.  Make all changes here.
+
+// DEFINE HARDWARE
+#define MPU6000_SPI
+#define CP2120_SPI
+#define MS5611_SPI
+#define HMC5983L_SPI
+
+//define device ids
+#define CP2120_ID	0
+#define MPU6000_ID	1
+#define MS5611_ID	2
+#define HMC5983L_ID	3
+
+#ifdef MPU6000_SPI
+#	include "hw_defs/MPU6000_SPI.hp"
+#endif
+#ifdef CP2120_SPI
+#	include "hw_defs/CP2120_SPI.hp"
+#endif
