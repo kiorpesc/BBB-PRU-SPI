@@ -1,4 +1,4 @@
-// this MUST be run on PRU1
+// on am335x, this MUST be run on PRU1
 // output pins should be set to mode 0x05 (in proper Command Register location in CortexA8)
 // input pins should be set to mode 0x36 (input enabled, pullup enabled, mode 6)
 
