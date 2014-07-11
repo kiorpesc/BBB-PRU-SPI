@@ -150,8 +150,8 @@ waitLongLoop:
     // add 9 cycles -> 17 cycles
 _waitShort:
     LDI		ITER, 0				//18
-    // if clock MHz >= 10, just return
-    QBLE 	waitShortReturn, SPEED_MHZ, 10			//if 10 <= SPEED_MHZ, return
+    // if clock MHz >= our max clock speed, just return
+    QBLE 	waitShortReturn, SPEED_MHZ, MAX_SPEED_MHZ			//if MAX_SPEED_MHZ <= SPEED_MHZ, return
 waitShortLoop:
     QBGE 	waitShortReturn, CYCLES_TO_WAIT, ITER
     ADD		ITER, ITER, 3

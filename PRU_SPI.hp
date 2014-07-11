@@ -44,6 +44,7 @@
 #define SCRATCH_1	11		// scratch pad 1
 #define TRANS_MAX	56		// maximum bytes that can be moved in a single transaction (based on register allocations, may be subject to change)
 #define PRU_CLOCK_MHZ	200		// might be useful
+#define MAX_SPEED_MHZ	5 		// maxed at 5 MHz due to instruction set limitations
 
 #define GP_STACK_PTR	0x4000		// general-purpose stack at top of memory
 #define RX_STACK_PTR	0x00AC		// stack to invert received bytes as they are stored (due to byte ordering issues)
