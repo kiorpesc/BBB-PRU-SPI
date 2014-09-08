@@ -1,6 +1,8 @@
 BBB-PRU-SPI
 ===========
 
+This branch is updated to include hardware-specific header files for sensors.
+
 Initial work on using one PRU core as an SPI Master.
 
 Maximum SPI clock speed is 5MHz (constrained by limited instruction set, not processor speed).
